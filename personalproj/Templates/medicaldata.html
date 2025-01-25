@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Medical Data</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Ensures body fills the viewport height */
+            width: 100vw; /* Ensures body fills the viewport width */
+            overflow: hidden; /* Prevents scrolling */
+        }
+        .background-image {
+            position: fixed; /* Keeps the background fixed while scrolling */
+            top: 0;
+            left: 0;
+            width: 100%; /* Cover full width */
+            height: 100%; /* Cover full height */
+            background-image: url('{% static "medical.webp" %}');
+            background-size: cover; /* Scales the image to cover the entire container */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents image repetition */
+            z-index: -1; /* Places the background behind all other content */
+        }
+        h3 {
+            text-align: center;
+            color: white;
+            font-weight: bolder;
+            text-shadow: 2px 2px 5px rgba(47, 165, 229, 0.451);
+        }
+        .align {
+            text-align: center;
+            color: white;
+        }
+        thead {
+            border-bottom: 1px solid black;
+        }
+        .align2 {
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="background-image"></div>
+    <div class="border rounded p-4 m-4 text-dark" style="background-color:rgba(105, 143, 161, 0.377);">
+        <input type="button" class="display-4 pl-4 ml-4 btn btn-dark rounded-pill" value="Back" onclick="history.back()"/>
+        <h3>⚕️ Medical Data ⚕️</h3>
+        <hr>
+        <table class="table">
+            <thead>
+            <tr class="align">
+                <th><i>Name</i></th>
+                <th><i>Age</i></th>
+                <th><i>Height (cm)</i></th>
+                <th><i>Weight (kg)</i></th>
+                <th><i>Blood Group</i></th>
+                <th><i>Gender</i></th>
+                <th><i>Allergies</i></th>
+                <th><i>Emergency Contact</i></th>
+                <th><i>Medications</i></th>
+                <th><i>Action</i></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for a in medicalkey %}
+            <tr class="align2">
+                <td><i>{{ a.Name }}</i></td>
+                <td><i>{{ a.age }}</i></td>
+                <td><i>{{ a.height }}</i></td>
+                <td><i>{{ a.weight }}</i></td>
+                <td><i>{{ a.blood_group }}</i></td>
+                <td><i>{{ a.gender }}</i></td>
+                <td><i>{{ a.allergies }}</i></td>
+                <td><i>{{ a.emergency_contact }}</i></td>
+                <td><i>{{ a.medications }}</i></td>
+                <td>
+                    <a href="/path22/{{ a.id }}"
+                       class="btn btn-dark btn-outline-transparent rounded text-light">Edit/Update</a>
+                    <a href="/path23/{{ a.id }}"
+                       class="btn btn-dark btn-outline-transparent rounded text-light">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <hr>
+    </div>
+</div>
+</body>
+</html>

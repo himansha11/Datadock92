@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Details Form</title>
+    <style>
+        body {
+
+        }
+        h1 {
+            background-color: #87ceeb;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        form {
+            width: 60%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #87ceeb;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color:black;
+        }
+        .section {
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        .section h2 {
+            margin-top: 0;
+            color: #555;
+        }
+        .button2 {
+            position: absolute;
+            top: 45px;
+            left: 10px;
+            border: none;
+           background-color: #87ceeb;
+            font-size: 18px;
+            color: rgba(105, 143, 161, 0.377);
+            cursor: pointer;
+        }
+
+        .button2:hover {
+            color: #ff639a;
+        }
+
+    </style>
+</head>
+<body>
+<div class="button2"> <button class="back-button" onclick="goBack()">Back</button></div>
+    <h1>💵 Bank Details Form 💵</h1>
+    <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="account_holder_name">Account Holder Name</label>
+        <input type="text" id="account_holder_name" name="name1" placeholder="Enter account holder name" required>
+
+        <div class="section">
+            <h2>Bank Details</h2>
+            <label for="bank_name">Bank Name</label>
+            <input type="text" id="bank_name" name="name2" placeholder="Enter bank name">
+
+            <label for="account_number">Account Number</label>
+            <input type="text" id="account_number" name="name3" placeholder="Enter account number">
+
+            <label for="ifsc_code">IFSC Code</label>
+            <input type="text" id="ifsc_code" name="name4" placeholder="Enter IFSC code">
+
+            <label>Account Type</label>
+            <div>
+                <input type="radio" id="savings" name="name5" value="Savings">
+                <label for="savings">Savings</label>
+                <input type="radio" id="current" name="name5" value="Current">
+                <label for="current">Current</label>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Financial Details</h2>
+            <label for="total_annual_income">Total Annual Income</label>
+            <input type="number" id="total_annual_income" name="name6" step="0.01" placeholder="Enter total annual income">
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+<script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

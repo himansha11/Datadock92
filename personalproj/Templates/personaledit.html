@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Form</title>
+    <style>
+        body {
+         background: linear-gradient(135deg, #f2a365, #ff639a);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .registration-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+
+
+        label {
+            display: block;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+            background-color: green;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: black;
+
+            transform: scale(1.1);
+        }
+        .background-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('{% static "hommeee.png" %}');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+        .button2 {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            border: none;
+            font-size: 18px;
+            color: rgba(105, 143, 161, 0.377);
+            cursor: pointer;
+        }
+
+        .button2:hover {
+            color: #ff639a;
+        }
+
+    </style>
+</head>
+<body>
+ <div class="button2"> <button class="back-button" onclick="goBack()">Back</button></div>
+    <div class="background-image"></div>
+    <div class="registration-container">
+        <h2> 👤 Edit Personal Details 👤</h2>
+        <form action="" method="POST" enctype="multipart/form-data">
+           {% csrf_token %}
+
+            <label for="name"> Name:</label>
+            <input type="text"  name="name1" placeholder="Enter your name "  value="{{ key1.Name }}">
+
+            <label for="lastname">Last Name:</label>
+            <input type="text"  name="name2" placeholder="Enter your last name"  value="{{ key1.lastname }}">
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date"  name="name3"  value="{{key1.dob|date:'Y-m-d' }}" required>
+
+            <label for="age">Age:</label>
+            <input type="number"  name="name4"  value="{{ key1.age }}">
+
+            <label for="address">Address:</label>
+            <input type="text"  name="name5" placeholder="Enter your address"  value="{{ key1.address }}">
+
+            <label for="email">Email:</label>
+            <input type="email"  name="name6" placeholder="Enter your email"  value="{{ key1.Email }}">
+
+            <label for="number">Number:</label>
+            <input type="text"  name="name7" placeholder="Enter your number"  value="{{ key1.number }}">
+
+            <button type="submit" value="Update values" >Save</button>
+        </form>
+
+    </div>
+<script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Educational Data</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Ensure body covers the full viewport height */
+            width: 100vw; /* Ensure body covers the full viewport width */
+            overflow: hidden; /* Prevent any scrolling */
+        }
+        .background-image {
+            position: fixed; /* Fixed position ensures it stays in place during scrolling */
+            top: 0;
+            left: 0;
+            width: 100%; /* Cover the full width of the screen */
+            height: 100%; /* Cover the full height of the screen */
+            background-image: url('{% static "education.jpg" %}');
+            background-size: cover; /* Scale the image proportionally to cover the entire area */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent repetition of the image */
+            z-index: -1; /* Place it behind all other elements */
+        }
+        h3 {
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(47, 165, 229, 0.451);
+        }
+        .align {
+            text-align: center;
+            color: black;
+        }
+        .align2 {
+            text-align: center;
+            color: black;
+        }
+        thead {
+            border-bottom: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="background-image"></div>
+        <div class="border rounded p-4 m-4 text-dark" style="background-color:rgba(105, 143, 161, 0.377);">
+            <input type="button" class="display-4 pl-4 ml-4 btn btn-dark rounded-pill" value="Back" onclick="history.back()"/>
+            <h3>📖 Educational Data 📖</h3>
+            <hr>
+            <table class="table">
+                <thead>
+                    <tr class="align">
+                        <th><i>Name</i></th>
+                        <th><i>SSLC School</i></th>
+                        <th><i>SSLC YOP</i></th>
+                        <th><i>SSLC Mark %</i></th>
+                        <th><i>+2 School</i></th>
+                        <th><i>+2 YOP</i></th>
+                        <th><i>+2 Mark %</i></th>
+                        <th><i>College</i></th>
+                        <th><i>Course Study</i></th>
+                        <th><i>College YOP</i></th>
+                        <th><i>College Mark %</i></th>
+                        <th><i>Action</i></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for a in educationkey %}
+                    <tr class="align2">
+                        <td><i>{{ a.Name }}</i></td>
+                        <td><i>{{ a.sslc_school }}</i></td>
+                        <td><i>{{ a.sslc_year }}</i></td>
+                        <td><i>{{ a.sslc_percentage }}</i></td>
+                        <td><i>{{ a.plus_two_school }}</i></td>
+                        <td><i>{{ a.plus_two_year }}</i></td>
+                        <td><i>{{ a.plus_two_percentage }}</i></td>
+                        <td><i>{{ a.degree_college }}</i></td>
+                        <td><i>{{ a.degree_course }}</i></td>
+                        <td><i>{{ a.degree_year }}</i></td>
+                        <td><i>{{ a.degree_percentage }}</i></td>
+                        <td><a href="/path18/{{ a.id }}" class="btn btn-dark btn-outline-transparent rounded text-light">Edit/Update</a></td>
+                        <td><a href="/path19/{{ a.id }}" class="btn btn-dark btn-outline-transparent rounded text-light">Delete</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <hr>
+        </div>
+    </div>
+</body>
+</html>

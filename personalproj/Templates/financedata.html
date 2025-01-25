@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Account Details</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Full viewport height */
+            width: 100vw; /* Full viewport width */
+            overflow: hidden; /* Prevent scrolling if needed */
+        }
+        .background-image {
+            position: fixed; /* Keep the background fixed while scrolling */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('{% static "finacial.webp" %}');
+            background-size: cover; /* Makes sure the image covers the entire container */
+            background-repeat: no-repeat; /* Prevents image repetition */
+            background-position: center; /* Centers the background image */
+            z-index: -1;
+        }
+        h3 {
+            text-align: center;
+            color: white;
+            font-weight: bolder;
+            text-shadow: 2px 2px 5px rgba(47, 165, 229, 0.451);
+        }
+        .align {
+            text-align: center;
+            color: white;
+        }
+        thead {
+            border-bottom: 1px solid black;
+        }
+        .align2 {
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="background-image"></div>
+    <div class="border rounded p-4 m-4 text-dark" style="background-color:rgba(105, 143, 161, 0.377);">
+        <input type="button" class="display-4 pl-4 ml-4 btn btn-dark rounded-pill" value="Back" onclick="history.back()"/>
+        <h3>Account Details</h3>
+        <hr>
+        <table class="table">
+            <thead>
+            <tr class="align">
+                <th><i>Account Holder Name</i></th>
+                <th><i>Bank Name</i></th>
+                <th><i>Account Number</i></th>
+                <th><i>IFSC Code</i></th>
+                <th><i>Account Type</i></th>
+                <th><i>Total Annual Income</i></th>
+                <th><i>Action</i></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for a in accountkey %}
+            <tr class="align2">
+                <td><i>{{ a.Name }}</i></td>
+                <td><i>{{ a.bank_name }}</i></td>
+                <td><i>{{ a.account_number }}</i></td>
+                <td><i>{{ a.ifsc_code }}</i></td>
+                <td><i>{{ a.account_type }}</i></td>
+                <td><i>{{ a.annual_income }}</i></td>
+                <td>
+                    <a href="/path16/{{ a.id }}"
+                       class="btn btn-dark btn-outline-transparent rounded text-light">Edit/Update</a>
+                    <a href="/path17/{{ a.id }}"
+                       class="btn btn-dark btn-outline-transparent rounded text-light">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <hr>
+    </div>
+</div>
+</body>
+</html>

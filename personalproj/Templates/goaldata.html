@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Goal Data</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Ensures body fills the viewport height */
+            width: 100vw; /* Ensures body fills the viewport width */
+            overflow: hidden; /* Prevents scrolling */
+        }
+        .background-image {
+            position: fixed; /* Keeps the background in place while scrolling */
+            top: 0;
+            left: 0;
+            width: 100%; /* Covers the full width */
+            height: 100%; /* Covers the full height */
+            background-image: url('{% static "home.jpg" %}');
+            background-size: cover; /* Scales the image to cover the entire container */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents image repetition */
+            z-index: -1; /* Ensures it stays behind the content */
+        }
+        h3 {
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(47, 165, 229, 0.451);
+        }
+        .align {
+            text-align: center;
+            color: black;
+        }
+        .align2 {
+            text-align: center;
+            color: black;
+        }
+        thead {
+            border-bottom: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="background-image"></div>
+    <div class="border rounded p-4 m-4 text-dark" style="background-color:rgba(105, 143, 161, 0.377);">
+        <input type="button" class="display-4 pl-4 ml-4 btn btn-dark rounded-pill" value="Back" onclick="history.back()"/>
+        <h3>🎯 Goals and Aspirations 🎯</h3>
+        <hr>
+        <table class="table">
+            <thead>
+            <tr class="align">
+                <th><i>Name</i></th>
+                <th><i>Short-Term Goals</i></th>
+                <th><i>Long-Term Goals</i></th>
+                <th><i>Dream Destinations</i></th>
+                <th><i>Bucket List</i></th>
+                <th><i>Action</i></th>
+                <th><i>Action</i></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for a in goalkey %}
+            <tr class="align2">
+                <td><i>{{ a.Name }}</i></td>
+                <td><i>{{ a.shortTermGoals }}</i></td>
+                <td><i>{{ a.longTermGoals }}</i></td>
+                <td><i>{{ a.dreamDestinations }}</i></td>
+                <td><i>{{ a.bucketListItems }}</i></td>
+                <td><a href="/path20/{{ a.id }}" class="btn btn-dark btn-outline-transparent rounded text-light">Edit/Update</a></td>
+                <td><a href="/path21/{{ a.id }}" class="btn btn-dark btn-outline-transparent rounded text-light">Delete</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <hr>
+    </div>
+</div>
+</body>
+</html>

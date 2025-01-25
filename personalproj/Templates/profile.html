@@ -1,0 +1,221 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #8ec5fc, #e0c3fc); /* Soft pastel gradient */
+            background-attachment: fixed;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Background Image */
+        .background-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('{% static "hommeee.png" %}');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between; /* Space between left and right columns */
+            align-items: center;
+            width: 70%; /* Adjust width of the navbar */
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column; /* Arrange the options vertically */
+            gap: 25px; /* Increased gap between options */
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: #6a1b9a;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-weight: 500;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #6a1b9a;
+            color: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(106, 27, 154, 0.5);
+        }
+
+        /* Logout Button */
+        .logout {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 15;
+        }
+
+        .logout a {
+            color: #fff;
+            font-weight: 600;
+            padding: 12px 25px;
+            background-color: #f44336;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .logout a:hover {
+            background-color: #d32f2f;
+            transform: translateY(-4px);
+        }
+
+        .logout a:active {
+            background-color: #c62828;
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 12px 0;
+            text-align: center;
+            color: #333;
+        }
+
+        footer a {
+            color: #6a1b9a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Content Section */
+        .content {
+            margin-top: 120px;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 25px;
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .content:hover {
+            box-shadow: 0 12px 25px rgba(106, 27, 154, 0.3);
+            transform: translateY(-8px);
+        }
+
+        .content h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #6a1b9a;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .content p {
+            font-size: 1.2em;
+            color: #666;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+
+        /* Media Query for Responsiveness */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                width: 80%; /* Adjust navbar width for smaller screens */
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px; /* Adjust gap for mobile */
+            }
+
+            .content {
+                margin-top: 150px;
+                padding: 20px;
+            }
+
+            .content h1 {
+                font-size: 2.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-image"></div>
+
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="/path3/">UserDataForm</a></li>
+            <li><a href="/path5/">EducationForm</a></li>
+            <li><a href="/path7/">MedicalForm</a></li>
+            <li><a href="/path9/">FinancialDataForm</a></li>
+        </ul>
+
+        <ul>
+            <li><a href="/path14/">GoalDataForm</a></li>
+            <li><a href="/path4/">Show UserData</a></li>
+            <li><a href="/path6/">Show EducationalDetails</a></li>
+            <li><a href="/path8/">Show MedicalDetails</a></li>
+            <li><a href="/path10/">Show FinancialDetails</a></li>
+            <li><a href="/path15/">Show GoalDetails</a></li>
+
+        </ul>
+    </nav>
+
+    <!-- Logout Button -->
+    <div class="logout">
+        <a href="/path11/">Log Out</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Your Company | <a href="/path3/">Contact Us</a></p>
+    </footer>
+
+</body>
+</html>

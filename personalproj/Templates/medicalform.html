@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Details Form</title>
+    <style>
+        body {
+
+        }
+        h1 {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        form {
+            width: 60%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"], input[type="submit"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        input[type="submit"] {
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: black;
+        }
+        .section {
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        .section h2 {
+            margin-top: 0;
+            color: #555;
+        }
+        .button2 {
+            position: absolute;
+            top: 45px;
+            left: 10px;
+            border: none;
+           background-color: #87ceeb;
+            font-size: 18px;
+            color: rgba(105, 143, 161, 0.377);
+            cursor: pointer;
+        }
+
+        .button2:hover {
+            color: #ff639a;
+        }
+    </style>
+</head>
+<body>
+<div class="button2"> <button class="back-button" onclick="goBack()">Back</button></div>
+    <h1>⚕️ Medical Details Form ⚕️</h1>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name1" placeholder="Enter your full name" required>
+
+        <label for="age">Age</label>
+        <input type="number" id="age" name="name2" placeholder="Enter your age" required>
+
+        <label for="height">Height (cm)</label>
+        <input type="number" id="height" name="name3" placeholder="Enter your height in cm" step="0.01" required>
+
+        <label for="weight">Weight (kg)</label>
+        <input type="number" id="weight" name="name4" placeholder="Enter your weight in kg" step="0.01" required>
+
+        <label for="blood_group">Blood Group</label>
+        <input type="text" id="blood_group" name="name5" placeholder="Enter your blood group" required>
+
+        <div class="section">
+            <h2>Gender</h2>
+            <input type="radio" id="male" name="name6" value="Male" required>
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="name6" value="Female">
+            <label for="female">Female</label><br>
+            <input type="radio" id="other" name="name6" value="Other">
+            <label for="other">Other</label><br>
+        </div>
+
+        <div class="section">
+            <h2>Allergies</h2>
+            <textarea id="allergies" name="name7" rows="4" placeholder="List any allergies"></textarea>
+        </div>
+
+        <div class="section">
+            <h2>Emergency Contact</h2>
+            <label for="emergency_contact">Name and Phone Number</label>
+            <input type="text" id="emergency_contact" name="name8" placeholder="Enter emergency contact details" required>
+        </div>
+
+        <div class="section">
+            <h2>Medications</h2>
+            <textarea id="medications" name="name9" rows="4" placeholder="List current medications"></textarea>
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+<script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

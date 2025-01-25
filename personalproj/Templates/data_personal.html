@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Personal Data</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Ensures the body covers the viewport height */
+            width: 100vw; /* Ensures the body covers the viewport width */
+            overflow: hidden; /* Prevents scrolling if the content overflows */
+        }
+
+        .background-image {
+            position: fixed; /* Keeps the background in place while scrolling */
+            top: 0;
+            left: 0;
+            width: 100%; /* Covers the full width of the screen */
+            height: 100%; /* Covers the full height of the screen */
+            background-image: url('{% static "home.jpg" %}');
+            background-size: cover; /* Scales the image to cover the container */
+            background-position: center; /* Centers the background image */
+            background-repeat: no-repeat; /* Prevents the background from repeating */
+            z-index: -1; /* Ensures it stays behind the content */
+        }
+
+        h3 {
+            text-align: center;
+            color: #ff4081; /* Updated header color */
+            font-weight: bolder;
+            text-shadow: 2px 2px 5px rgba(47, 165, 229, 0.451);
+        }
+
+        .align {
+            text-align: center;
+            color: #ff4081; /* Updated text color */
+        }
+
+        .align2 {
+            text-align: center;
+            color: #f1f1f1; /* Light text color for table rows */
+        }
+
+        thead {
+            border-bottom: 2px solid #ff4081; /* Updated table header border */
+        }
+
+        table {
+            background-color: rgba(255, 255, 255, 0.8); /* Updated background color for the table */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            color: #333; /* Darker text for table contents */
+        }
+
+        .btn-dark {
+            background-color: #ff4081; /* Button color */
+            border: none;
+        }
+
+        .btn-dark:hover {
+            background-color: #e6005c; /* Darker hover effect for buttons */
+        }
+
+        .btn-outline-transparent {
+            border: 1px solid #ff4081; /* Button border color */
+        }
+
+        .btn-outline-transparent:hover {
+            background-color: #ff4081;
+            color: white;
+        }
+
+        input[type="button"] {
+            background-color: #ff4081; /* Updated button color */
+            border: none;
+        }
+
+        input[type="button"]:hover {
+            background-color: #e6005c; /* Darker hover effect for buttons */
+        }
+
+        hr {
+            border: 1px solid #ff4081; /* Updated line color */
+        }
+
+        .border {
+            border-radius: 15px;
+        }
+
+        .rounded-pill {
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="background-image"></div>
+    <div class="border rounded p-4 m-4 text-dark" style="background-color: rgba(105, 143, 161, 0.377);">
+        <input type="button" class="display-4 pl-4 ml-4 btn btn-dark rounded-pill" value="Back" onclick="history.back()"/>
+        <h3>Personal Data 👤</h3>
+        <hr>
+        <table class="table">
+            <thead>
+            <tr class="align">
+                <th><i>Name</i></th>
+                <th><i>Lastname</i></th>
+                <th><i>DOB</i></th>
+                <th><i>Age</i></th>
+                <th><i>Address</i></th>
+                <th><i>Email</i></th>
+                <th><i>Number</i></th>
+                <th><i>Action</i></th>
+                <th><i>Action</i></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for a in personalkey %}
+            <tr class="align2">
+                <td><i>{{ a.Name }}</i></td>
+                <td><i>{{ a.lastname }}</i></td>
+                <td><i>{{ a.dob }}</i></td>
+                <td><i>{{ a.age }}</i></td>
+                <td><i>{{ a.address }}</i></td>
+                <td><i>{{ a.Email }}</i></td>
+                <td><i>{{ a.number }}</i></td>
+                <td><a href="/path12/{{ a.id }}" class="btn btn-dark btn-outline-transparent rounded text-light">Edit/Update</a></td>
+                <td><a href="/path13/{{ a.id }}" class="btn btn-dark btn-outline-transparent rounded text-light">Delete</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <hr>
+    </div>
+</div>
+</body>
+</html>

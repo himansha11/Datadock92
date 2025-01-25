@@ -1,0 +1,174 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(34,193,195,1) 0%, rgba(253,29,29,1) 100%); /* Vibrant gradient background */
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.2); /* Transparent background */
+            backdrop-filter: blur(10px); /* Glassmorphism effect */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .login-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #fff;
+            margin-bottom: 30px;
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .input-field:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+        }
+
+        .input-field::placeholder {
+            color: #aaa;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .login-button:hover {
+            background-color: #0056b3;
+        }
+
+        .login-button:active {
+            background-color: #003d7a;
+        }
+
+        .login-link {
+            display: block;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .login-link:hover {
+            color: #007bff;
+        }
+
+        .create-account-link {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .create-account-link:hover {
+            text-decoration: underline;
+            color: #007bff;
+        }
+
+        /* Input field icons */
+        .input-container {
+            position: relative;
+        }
+
+        .input-container i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+        }
+
+        .input-field {
+            padding-left: 35px; /* Space for icons */
+        }
+
+        /* Background Image */
+        .background-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('{% static "th.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <div class="input-container">
+                <i class="fas fa-user"></i>
+                <input type="text" name="name1" class="input-field" placeholder="Enter your name" required>
+            </div>
+
+            <div class="input-container">
+                <i class="fas fa-envelope"></i>
+                <input type="email" name="name2" class="input-field" placeholder="Enter your email" required>
+            </div>
+
+            <button type="submit" class="login-button">Login</button>
+        </form>
+
+        <a href="/path1/" class="create-account-link">Don't have an account? Sign up</a>
+    </div>
+
+    <!-- Font Awesome Icons for the Input Fields -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        /* Global Background Image */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('home.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            overflow: hidden;
+            font-size: 1.1em;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            position: absolute;
+            top: 30px;
+            left: 50px;
+            display: flex;
+            gap: 20px;
+            z-index: 10;
+        }
+        .navbar button {
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            color: #333;
+            padding: 14px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.2em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .navbar button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        .navbar button:active {
+            transform: translateY(2px);
+        }
+
+        /* Content section */
+        .content {
+            text-align: center;
+            max-width: 500px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.6); /* Darken the background slightly */
+            backdrop-filter: blur(8px); /* Add blur effect to the background */
+            border: 4px solid #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.5s ease-in-out;
+            z-index: 5;
+        }
+        .content h1 {
+            font-size: 3.8em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px; /* Slight letter-spacing for modern feel */
+        }
+        .content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* Responsive image inside content */
+        .content img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        /* FadeIn animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Additional Media Queries */
+        @media (max-width: 768px) {
+            .navbar {
+                position: static;
+                justify-content: center;
+                margin-top: 20px;
+            }
+            .content {
+                padding: 20px;
+                max-width: 90%;
+            }
+            .content h1 {
+                font-size: 2.8em;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <button onclick="window.location.href='path1'">Sign Up</button>
+        <button onclick="window.location.href='path2'">Login</button>
+    </div>
+    <div class="content">
+        <h1>DATADOCK</h1>
+    </div>
+</body>
+</html>
